@@ -42,16 +42,17 @@ function storm_admin_bar_custom_menus() {
 	$menu_items = wp_get_nav_menu_items('admin');
 	
 	// Associate parent IDs with slugs
-	foreach ($menu_items as $key => $item) {
+	foreach ( (array) $menu_items as $key => $item) {
 		if ( $item->post_parent == 0 ) {
+			// TODO: Revise to work with pages and posts
 			$menu_slugs[ $item->ID ] = $item->post_name;
 		}
 	}
 	
 	// Add menu items to Admin bar
-	foreach ($menu_items as $key => $item) {
+	foreach ( (array) $menu_items as $key => $item) {
 		if ( $item->menu_item_parent == 0 ) {
-			$wp_admin_bar->add_menu( array( 'id' => $item->post_name, 'title' => $item->post_title, 'href' => FALSE ));
+			$wp_admin_bar->add_menu( array( 'id' => $item->post_name, 'title' => $item->post_title, 'href' => $item->url ));
 		}else {
 			$wp_admin_bar->add_menu( array( 'parent' => $menu_slugs[ $item->menu_item_parent ], 'title' => $item->post_title, 'href' => $item->url ) );
 		}
