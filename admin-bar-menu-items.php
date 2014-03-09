@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Admin Bar Menu Items
-Plugin URI: https://github.com/10up/admin-bar-menu-items
+Plugin URI: https://github.com/brainstormmedia/admin-bar-menu-items
 Description: Add menu items to the Admin Bar using a menu called "Admin" in <a href="nav-menus.php">Appearance > Menus</a>.
 Version: 1.0
 Author: Paul Clark, 10up
